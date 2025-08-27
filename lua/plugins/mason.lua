@@ -12,8 +12,17 @@ return {
         "shfmt",
         "clangd",
         "pyrefly",
+        "black",
+        "codelldb",
+        "debugpy",
+        "marksman",
+        "cpplint",
+        "markdownlint-cli2",
+        "pylint",
+        "markdown-toc",
       },
     },
+
     ---@param opts MasonSettings | {ensure_installed: string[]}
     config = function(_, opts)
       require("mason").setup(opts)
