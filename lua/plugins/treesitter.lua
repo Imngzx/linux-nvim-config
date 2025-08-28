@@ -27,7 +27,10 @@ return {
       indent = { enable = true },
       ensure_installed = {
         "bash",
+        "ninja",
+        "rst",
         "c",
+        "cpp",
         "diff",
         "html",
         "javascript",
