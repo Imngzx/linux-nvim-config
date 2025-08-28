@@ -16,7 +16,7 @@ return {
         styles = {
           bold = true,
           italic = false,
-          transparency = true,
+          transparency = false,
         },
         highlight_groups = {
           ColorColumn = { bg = "#1C1C21" },
@@ -139,7 +139,7 @@ return {
     lazy = false,
     config = function()
       require("solarized-osaka").setup({
-        transparent = true,
+        transparent = false,
         terminal_colors = true, -- Configure the colors used when opening a `:terminal` in [Neovim](https://github.com/neovim/neovim)
         styles = {
           -- Style to be applied to different syntax groups
@@ -196,7 +196,7 @@ return {
     name = "folkeTokyonight",
     -- priority = 1000,
     config = function()
-      local transparent = true
+      local transparent = false
       local bg = "#011628"
       local bg_dark = "#011423"
       local bg_highlight = "#143652"
@@ -208,7 +208,7 @@ return {
       local border = "#547998"
 
       require("tokyonight").setup({
-        style = "storm",
+        style = "moon",
         transparent = transparent,
 
         styles = {

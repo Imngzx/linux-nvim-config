@@ -3,7 +3,6 @@ require("config.lazy")
 
 --lsp section
 vim.lsp.enable("pyrefly")
-vim.lsp.enable("clangd")
 
 -- Auto-enable spell checking for certain filetypes
 vim.api.nvim_create_autocmd("FileType", {
@@ -14,7 +13,7 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
---smear cursor
+--smear cursor config
 -- require("smear_cursor").setup({
 --   cursor_color = "#FFFFFF",
 --   stiffness = 0.8,
