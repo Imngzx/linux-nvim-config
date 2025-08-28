@@ -31,6 +31,6 @@ require("render-markdown").setup({
 })
 
 --NOTE:   if you use neovide
--- if vim.g.neovide then
---   vim.o.guifont = "JetBrains Mono:h14:b" -- Replace h14 with your desired font size
--- end
+if vim.g.neovide then
+  vim.o.guifont = "JetBrains Mono:h14:b" -- Replace h14 with your desired font size
+end
