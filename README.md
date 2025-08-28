@@ -15,4 +15,8 @@ Also remember to install fd, ripgrep, find via:
 - sudo dnf install
 - sudo apt install
 
+```
+
   git clone <https://github.com/Imngzx/linux-nvim-config.git> "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
+
+```
