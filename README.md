@@ -7,7 +7,7 @@ A starter template for [LazyVim](https://github.com/LazyVim/LazyVim).
 > Remember to add:
 
 - marksman.toml
-- pyrefly.toml (activate venv first)
+- pyrightconfig.json (activate venv first)
 - compile_commands.json
 
 Also remember to install fd, ripgrep, find via:
