@@ -13,11 +13,11 @@ return {
         ---@type vim.diagnostic.Opts
         diagnostics = {
           underline = true,
-          update_in_insert = false,
+          update_in_insert = true,
           virtual_text = {
             spacing = 4,
             source = "if_many",
-            prefix = "☉", -- ■
+            prefix = "", -- ■ ☉ 
             -- this will set set the prefix to a function that returns the diagnostics icon based on the severity
             -- this only works on a recent 0.10.0 build. Will be set to "●" when not supported
             -- prefix = "icons",
@@ -25,7 +25,7 @@ return {
           severity_sort = true,
           signs = {
             text = {
-              [vim.diagnostic.severity.ERROR] = ">>",
+              [vim.diagnostic.severity.ERROR] = "",
               [vim.diagnostic.severity.WARN] = "",
               [vim.diagnostic.severity.HINT] = "",
               [vim.diagnostic.severity.INFO] = "",
@@ -63,6 +63,12 @@ return {
         },
         -- LSP Server Settings
         ---@type lspconfig.options
+        ---
+        opts = {
+          capabilities = {
+            offsetEncoding = { "utf- 16" },
+          },
+        },
         servers = {
           lua_ls = {
             -- mason = false, -- set to false if you don't want this server to be installed with mason
@@ -93,6 +99,54 @@ return {
                   arrayIndex = "Disable",
                 },
               },
+            },
+          },
+
+          basedpyright = {
+            settings = {
+              basedpyright = {
+                analysis = {
+                  typeCheckingMode = "basic",
+                },
+              },
+            },
+          },
+
+          clangd = {
+            keys = {
+              { "<leader>ch", "<cmd>ClangdSwitchSourceHeader<cr>", desc = "Switch Source/Header (C/C++)" },
+            },
+            root_dir = function(fname)
+              return require("lspconfig.util").root_pattern(
+                "Makefile",
+                "configure.ac",
+                "configure.in",
+                "config.h.in",
+                "meson.build",
+                "meson_options.txt",
+                "build.ninja"
+              )(fname) or require("lspconfig.util").root_pattern(
+                "compile_commands.json",
+                "compile_flags.txt"
+              )(fname) or require("lspconfig.util").find_git_ancestor(fname)
+            end,
+            capabilities = {
+              offsetEncoding = { "utf-16" },
+            },
+            cmd = {
+              "clangd",
+              "--background-index",
+              "--clang-tidy",
+              "--header-insertion=iwyu",
+              "--completion-style=detailed",
+              "--function-arg-placeholders",
+              "--fallback-style=llvm",
+              "--query-driver=/usr/bin/**/clang-*,/bin/clang,/bin/clang++,/usr/bin/gcc,/usr/bin/g++",
+            },
+            init_options = {
+              usePlaceholders = true,
+              completeUnimported = true,
+              clangdFileStatus = true,
             },
           },
         },

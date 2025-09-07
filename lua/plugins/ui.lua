@@ -204,13 +204,13 @@ return {
         animate = {
           duration = { step = 15, total = 150 },
           easing = "inCubic",
-          fps = 60,
+          fps = 120,
         },
         animate_repeat = {
           delay = 50, -- delay in ms before using the repeat animation
           duration = { step = 5, total = 150 },
           easing = "linear",
-          fps = 60,
+          fps = 120,
         },
       },
     },

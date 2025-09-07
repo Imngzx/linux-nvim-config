@@ -2,9 +2,9 @@
 require("config.lazy")
 
 --lsp section
-vim.lsp.enable("pyrefly")
+-- vim.lsp.enable("basedpyright")
 
--- Auto-enable spell checking for certain filetypes
+--NOTE: Auto-enable spell checking for certain filetypes (useful for md files)
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "markdown", "text", "gitcommit", "latex" },
   callback = function()
@@ -32,5 +32,5 @@ require("render-markdown").setup({
 
 --NOTE:   if you use neovide
 if vim.g.neovide then
-  vim.o.guifont = "JetBrains Mono:h14:b" -- Replace h14 with your desired font size
+  vim.o.guifont = "JetBrainsMono Nerd Font Mono:h14:b" -- Replace h14 with your desired font size
 end
