@@ -9,6 +9,14 @@ return {
     },
   },
 
+  --NOTE: this is the alpha keybinding
+  {
+    "goolord/alpha-nvim",
+    keys = {
+      { "<leader>aa", "<cmd>Alpha<cr>", desc = "Dashboard (Alpha)" },
+    },
+  },
+
   --NOTE: folke noice config
   {
     "folke/noice.nvim",

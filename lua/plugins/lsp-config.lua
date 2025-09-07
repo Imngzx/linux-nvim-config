@@ -148,6 +148,9 @@ return {
               completeUnimported = true,
               clangdFileStatus = true,
             },
+            arguments = {
+              "-std = c++23",
+            },
           },
         },
         -- you can do any additional lsp server setup here
