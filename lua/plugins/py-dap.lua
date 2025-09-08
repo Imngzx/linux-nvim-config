@@ -26,7 +26,7 @@ return {
   },
   {
     "mfussenegger/nvim-dap-python",
-    event = "VeryLazy",
+    event = "BufREadPre",
     -- stylua: ignore
     keys = {
       { "<leader>dPt", function() require('dap-python').test_method() end, desc = "Debug Method", ft = "python" },
