@@ -1,6 +1,6 @@
 -- Location: lua/plugins/lualine.lua (or wherever you have it)
 return {
-
+  event = "VeryLazy",
   --NOTE: configure nvim to load your desired colroschme
   {
     "LazyVim/LazyVim",
@@ -71,13 +71,14 @@ return {
     end,
   },
 
+  --NOTE: THIS IS FOR THE TABS
   {
     "akinsho/bufferline.nvim",
     event = "VeryLazy",
     opts = {
       options = {
-        -- mode = "tabs",
-        separator_style = "slant",
+        mode = "buffers", --tabs
+        separator_style = "slope",
         show_buffer_close_icons = false,
         show_close_icon = false,
       },
