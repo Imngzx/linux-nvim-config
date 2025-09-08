@@ -189,7 +189,7 @@ return {
           local modified = vim.bo[props.buf].modified
 
           return {
-            { " ", icon, " ", guifg = icon_color },
+            { " ",      icon,                               " ", guifg = icon_color },
             { filename, gui = modified and "bold" or "none" },
             modified and { " [+]", guifg = "#ff9e64" } or "",
             " ",
@@ -204,21 +204,25 @@ return {
     "folke/snacks.nvim",
     ---@type snacks.Config
     opts = {
+      dim = { enabled = true },
+      notifier = { enabled = true },
+      indent = { enabled = true },
+      quickfile = { enabled = true },
       scroll = {
         -- your scroll configuration comes here
         -- or leave it empty to use the default settings
         -- refer to the configuration section below
-
+        enabled = true,
         animate = {
           duration = { step = 15, total = 150 },
-          easing = "inCubic",
-          fps = 120,
+          easing = "linear",
+          fps = 240,
         },
         animate_repeat = {
           delay = 50, -- delay in ms before using the repeat animation
           duration = { step = 5, total = 150 },
           easing = "linear",
-          fps = 120,
+          fps = 240,
         },
       },
     },
@@ -241,18 +245,18 @@ return {
     ]]
 
       dashboard.section.header.val = vim.split(logo, "\n")
-    -- stylua: ignore
-    dashboard.section.buttons.val = {
-      dashboard.button("f", " " .. " Find file",       "<cmd> lua LazyVim.pick()() <cr>"),
-      dashboard.button("n", " " .. " New file",        [[<cmd> ene <BAR> startinsert <cr>]]),
-      dashboard.button("r", " " .. " Recent files",    [[<cmd> lua LazyVim.pick("oldfiles")() <cr>]]),
-      dashboard.button("g", " " .. " Find text",       [[<cmd> lua LazyVim.pick("live_grep")() <cr>]]),
-      dashboard.button("c", " " .. " Config",          "<cmd> lua LazyVim.pick.config_files()() <cr>"),
-      dashboard.button("s", " " .. " Restore Session", [[<cmd> lua require("persistence").load() <cr>]]),
-      dashboard.button("x", " " .. " Lazy Extras",     "<cmd> LazyExtras <cr>"),
-      dashboard.button("l", "󰒲 " .. " Lazy",            "<cmd> Lazy <cr>"),
-      dashboard.button("q", " " .. " Quit",            "<cmd> qa <cr>"),
-    }
+      -- stylua: ignore
+      dashboard.section.buttons.val = {
+        dashboard.button("f", " " .. " Find file", "<cmd> lua LazyVim.pick()() <cr>"),
+        dashboard.button("n", " " .. " New file", [[<cmd> ene <BAR> startinsert <cr>]]),
+        dashboard.button("r", " " .. " Recent files", [[<cmd> lua LazyVim.pick("oldfiles")() <cr>]]),
+        dashboard.button("g", " " .. " Find text", [[<cmd> lua LazyVim.pick("live_grep")() <cr>]]),
+        dashboard.button("c", " " .. " Config", "<cmd> lua LazyVim.pick.config_files()() <cr>"),
+        dashboard.button("s", " " .. " Restore Session", [[<cmd> lua require("persistence").load() <cr>]]),
+        dashboard.button("x", " " .. " Lazy Extras", "<cmd> LazyExtras <cr>"),
+        dashboard.button("l", "󰒲 " .. " Lazy", "<cmd> Lazy <cr>"),
+        dashboard.button("q", " " .. " Quit", "<cmd> qa <cr>"),
+      }
       for _, button in ipairs(dashboard.section.buttons.val) do
         button.opts.hl = "AlphaButtons"
         button.opts.hl_shortcut = "AlphaShortcut"
@@ -285,12 +289,12 @@ return {
           local stats = require("lazy").stats()
           local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
           dashboard.section.footer.val = "⚡ Neovim loaded "
-            .. stats.loaded
-            .. "/"
-            .. stats.count
-            .. " plugins in "
-            .. ms
-            .. "ms"
+              .. stats.loaded
+              .. "/"
+              .. stats.count
+              .. " plugins in "
+              .. ms
+              .. "ms"
           pcall(vim.cmd.AlphaRedraw)
         end,
       })

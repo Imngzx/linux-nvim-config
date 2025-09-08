@@ -21,6 +21,9 @@ return {
         "markdownlint-cli2",
         "pylint",
         "markdown-toc",
+        "ruff",
+        "cmakelang",
+        "cmakelint",
       },
     },
 

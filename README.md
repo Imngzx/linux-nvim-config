@@ -4,10 +4,10 @@ Refer to the [documentation](https://lazyvim.github.io/installation) to get star
 A starter template for [LazyVim](https://github.com/LazyVim/LazyVim).
 
 > [!CAUTION]
-> Remember to add:
+> Remember to add these as root folders:
 
 - marksman.toml
-- pyrightconfig.json (activate venv first)
+- pyrightconfig.json (activate venv first) , ruff.toml
 - compile_commands.json
 
 Also remember to install fd, ripgrep, find via:

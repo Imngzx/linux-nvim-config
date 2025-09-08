@@ -2,6 +2,7 @@ return {
 
   {
     "mfussenegger/nvim-dap",
+    event = "VeryLazy",
     optional = true,
     dependencies = {
       -- Ensure C/C++ debugger is installed
