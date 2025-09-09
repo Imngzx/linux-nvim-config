@@ -1,6 +1,13 @@
 -- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")
 
+--NOTE: this is for remove space after save
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*",
+  callback = function()
+    vim.cmd([[%s/\s\+$//e]])
+  end,
+})
 
 --NOTE: Auto-enable spell checking for certain filetypes (useful for md files)
 vim.api.nvim_create_autocmd("FileType", {

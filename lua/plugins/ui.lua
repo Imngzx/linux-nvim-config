@@ -9,14 +9,6 @@ return {
     },
   },
 
-  ----NOTE: this is the alpha keybinding
-  --{
-  --  "goolord/alpha-nvim",
-  --  keys = {
-  --    { "<leader>aa", "<cmd>Alpha<cr>", desc = "Dashboard (Alpha)" },
-  --  },
-  --},
-
   --NOTE: folke noice config
   {
     "folke/noice.nvim",
@@ -94,24 +86,6 @@ return {
     },
   },
 
-  --NOTE: enbable to show hidden files
-  {
-    "folke/snacks.nvim",
-    event = "VeryLazy",
-    opts = {
-      picker = {
-        hidden = true,
-        ignored = true,
-        sources = {
-          explorer = {
-            hidden = true,
-            ignored = true,
-          },
-        },
-      },
-    },
-  },
-
   --NOTE: bottom bar configure
   {
     "nvim-lualine/lualine.nvim",
@@ -135,7 +109,7 @@ return {
       -- show filetype in lualine_x
       opts.sections.lualine_x = {
         -- "macro-recording", -- ✅ ADD THIS LINE
-        -- "filetype",
+        "filetype",
         -- {
         --   "fileformat",
         --   icons_enabled = true,
@@ -211,6 +185,17 @@ return {
     "folke/snacks.nvim",
     ---@type snacks.Config
     opts = {
+
+      picker = {
+        hidden = true,
+        ignored = true,
+        sources = {
+          explorer = {
+            hidden = true,
+            ignored = true,
+          },
+        },
+      },
       dim = { enabled = true },
       notifier = { enabled = true },
       indent = { enabled = true },
@@ -235,7 +220,7 @@ return {
     },
   },
 
-  --NOTE: start screen config
+  --NOTE: start screen config and also the key to back to dashboard
   {
     "goolord/alpha-nvim",
     event = "VeryLazy",

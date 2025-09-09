@@ -26,7 +26,7 @@ return {
         "debugpy",
         "marksman",
         "cpplint",
-        "markdownlint-cli2",
+        -- "markdownlint-cli2",
         "pylint",
         "markdown-toc",
         "ruff",
