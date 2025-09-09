@@ -1,9 +1,9 @@
 -- Location: lua/plugins/lualine.lua (or wherever you have it)
 return {
-  event = "VeryLazy",
   --NOTE: configure nvim to load your desired colroschme
   {
     "LazyVim/LazyVim",
+    event = "VeryLazy",
     opts = {
       colorscheme = "tokyonight", -- changing this can change the colorscheme
     },
@@ -20,6 +20,7 @@ return {
   --NOTE: folke noice config
   {
     "folke/noice.nvim",
+    event = "VeryLazy",
     opts = function(_, opts)
       table.insert(opts.routes, {
         filter = {
@@ -96,6 +97,7 @@ return {
   --NOTE: enbable to show hidden files
   {
     "folke/snacks.nvim",
+    event = "VeryLazy",
     opts = {
       picker = {
         hidden = true,
@@ -113,6 +115,7 @@ return {
   --NOTE: bottom bar configure
   {
     "nvim-lualine/lualine.nvim",
+    event = "VeryLazy",
     opts = function(_, opts)
       local LazyVim = require("lazyvim.util")
 
@@ -172,6 +175,7 @@ return {
   --NOTE: top right thingy
   {
     "b0o/incline.nvim",
+    event = "VeryLazy",
     enabled = true,
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
@@ -234,6 +238,7 @@ return {
   --NOTE: start screen config
   {
     "goolord/alpha-nvim",
+    event = "VeryLazy",
 
     keys = {
       { "<leader>aa", "<cmd>Alpha<cr>", desc = "Dashboard (Alpha)" },

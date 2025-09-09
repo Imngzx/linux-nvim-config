@@ -43,7 +43,7 @@ M.init = function()
     end
   end, {
     desc = "Disable autoformat-on-save",
-    bang = true,
+    bang = false,
   })
 
   vim.api.nvim_create_user_command("FormatEnable", function()

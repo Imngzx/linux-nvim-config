@@ -2,11 +2,19 @@ return {
   {
 
     "mason-org/mason.nvim",
+    event = "VeryLazy",
     cmd = "Mason",
     keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } },
     build = ":MasonUpdate",
     opts_extend = { "ensure_installed" },
     opts = {
+      ui = {
+        icons = {
+          package_installed = "✓", -- Icon for installed packages
+          package_pending = "➜", -- Icon for packages in progress
+          package_uninstalled = "✗" -- Icon for uninstalled packages
+        },
+      },
       ensure_installed = {
         "stylua",
         "shfmt",
