@@ -18,7 +18,7 @@ return {
     return {
       mode = get_mode(), -- toggle mode
       focus = true,
-      startinsert = false,
+      startinsert = true,
       term = { position = "bot", size = 10 },
       float = {
         border = "rounded",
@@ -43,7 +43,10 @@ return {
           "g++ -std=c++23 -Wall -Wextra -O2 -o out/$fileNameWithoutExt $fileName -lm &&",
           "./out/$fileNameWithoutExt",
         },
-        python = "python3 -u $fileName",
+        python = {
+          "cd $dir &&",
+          "python3 -u $fileName",
+        },
       },
     }
   end,
