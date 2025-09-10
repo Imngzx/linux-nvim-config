@@ -1,4 +1,3 @@
--- Location: lua/plugins/lualine.lua (or wherever you have it)
 return {
   --NOTE: configure nvim to load your desired colroschme
   {
@@ -109,7 +108,6 @@ return {
       -- show filetype in lualine_x
       opts.sections.lualine_x = {
         -- "macro-recording", -- ✅ ADD THIS LINE
-        "filetype",
         -- {
         --   "fileformat",
         --   icons_enabled = true,
@@ -121,6 +119,7 @@ return {
         {
           "lsp_status",
           icons_enabled = true,
+          icon = "󱐌",
         },
       }
 
@@ -149,7 +148,7 @@ return {
   --NOTE: top right thingy
   {
     "b0o/incline.nvim",
-    event = "VeryLazy",
+    event = "BufReadPre",
     enabled = true,
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
@@ -158,7 +157,10 @@ return {
       require('incline').setup {
         window = {
           padding = 0,
-          margin = { horizontal = 0 },
+          margin = { horizontal = 1 },
+        },
+        hide = {
+          cursorline = true,
         },
         render = function(props)
           local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ':t')
@@ -196,6 +198,7 @@ return {
           },
         },
       },
+
       dim = { enabled = true },
       notifier = { enabled = true },
       indent = { enabled = true },

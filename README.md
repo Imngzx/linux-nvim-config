@@ -10,7 +10,7 @@ A starter template for [LazyVim](https://github.com/LazyVim/LazyVim).
 - pyrightconfig.json (activate venv first) , ruff.toml
 - compile_commands.json
 
-Also remember to install fd, ripgrep, and xclip find via:
+Also remember to install fd, ripgrep, luarocks, lua and xclip find via:
 
 - sudo dnf install
 - sudo apt install
