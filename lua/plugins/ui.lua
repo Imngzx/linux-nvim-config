@@ -2,7 +2,7 @@ return {
   --NOTE: configure nvim to load your desired colroschme
   {
     "LazyVim/LazyVim",
-    event = "VeryLazy",
+    event = "VimEnter",
     opts = {
       colorscheme = "tokyonight", -- changing this can change the colorscheme
     },
@@ -77,20 +77,17 @@ return {
     },
   },
 
-  --NOTE:nvim notify
-  {
-    "rcarriga/nvim-notify",
-    opts = {
-      timeout = 10000,
-    },
-  },
-
   --NOTE: bottom bar configure
   {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
     opts = function(_, opts)
       local LazyVim = require("lazyvim.util")
+
+      -- ✅ Add your separators config
+      opts.options = vim.tbl_deep_extend("force", opts.options or {}, {
+        section_separators = { left = "", right = "" }, --
+      })
 
       -- keep pretty path
       opts.sections.lualine_c[4] = {
@@ -107,15 +104,6 @@ return {
 
       -- show filetype in lualine_x
       opts.sections.lualine_x = {
-        -- "macro-recording", -- ✅ ADD THIS LINE
-        -- {
-        --   "fileformat",
-        --   icons_enabled = true,
-        -- },
-        -- {
-        --   "encoding",
-        --   icons_enabled = false,
-        -- },
         {
           "lsp_status",
           icons_enabled = true,
@@ -185,6 +173,7 @@ return {
   --NOTE: scrolling config
   {
     "folke/snacks.nvim",
+    event = "VimEnter",
     ---@type snacks.Config
     opts = {
 
@@ -226,12 +215,10 @@ return {
   --NOTE: start screen config and also the key to back to dashboard
   {
     "goolord/alpha-nvim",
-    event = "VeryLazy",
-
+    event = "VimEnter",
     keys = {
       { "<leader>aa", "<cmd>Alpha<cr>", desc = "Dashboard (Alpha)" },
     },
-    event = "VimEnter",
     enabled = true,
     init = false,
     opts = function()
