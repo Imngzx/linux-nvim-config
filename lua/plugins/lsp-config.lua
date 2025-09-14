@@ -1,7 +1,7 @@
 return {
   {
     "neovim/nvim-lspconfig",
-    event = "LazyFile",
+    event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       "mason.nvim",
       { "mason-org/mason-lspconfig.nvim", config = function() end },
@@ -13,7 +13,7 @@ return {
         ---@type vim.diagnostic.Opts
         diagnostics = {
           underline = true,
-          update_in_insert = false,
+          update_in_insert = true,
           -- virtual_text = {
           --   spacing = 3,
           --   source = "if_many",
@@ -25,10 +25,10 @@ return {
           severity_sort = true,
           signs = {
             text = {
-              [vim.diagnostic.severity.ERROR] = ">>", --
-              [vim.diagnostic.severity.WARN] = "",
+              [vim.diagnostic.severity.ERROR] = "", --
+              [vim.diagnostic.severity.WARN] = "",
               [vim.diagnostic.severity.HINT] = "",
-              [vim.diagnostic.severity.INFO] = "",
+              [vim.diagnostic.severity.INFO] = "",
             },
           },
         },
@@ -36,7 +36,7 @@ return {
         -- Be aware that you also will need to properly configure your LSP server to
         -- provide the inlay hints.
         inlay_hints = {
-          enabled = false,
+          enabled = true,
           exclude = { "vue" }, -- filetypes for which you don't want to enable inlay hints
         },
         -- Enable this to enable the builtin LSP code lenses on Neovim >= 0.10.0
@@ -157,7 +157,10 @@ return {
               usePlaceholders = true,
               completeUnimported = true,
               clangdFileStatus = true,
-              fallbackFlags = { '--std=c++23' },
+              fallbackFlags = {
+                '--std=c++23',
+                '/EHsc'
+              },
             },
           },
         },

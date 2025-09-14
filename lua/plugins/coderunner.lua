@@ -1,4 +1,4 @@
-_G.RUNNER_FLOAT_MODE = false --NOTE: toggle here to switch between float or newtab mode
+_G.RUNNER_FLOAT_MODE = true --NOTE: toggle here to switch between float or newtab mode
 
 -- helper function to get mode
 local function get_mode()

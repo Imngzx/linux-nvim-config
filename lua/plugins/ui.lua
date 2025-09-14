@@ -2,7 +2,6 @@ return {
   --NOTE: configure nvim to load your desired colroschme
   {
     "LazyVim/LazyVim",
-    event = "VimEnter",
     opts = {
       colorscheme = "tokyonight", -- changing this can change the colorscheme
     },
@@ -173,7 +172,7 @@ return {
   --NOTE: scrolling config
   {
     "folke/snacks.nvim",
-    event = "VimEnter",
+    event = "VeryLazy",
     ---@type snacks.Config
     opts = {
 
@@ -198,13 +197,13 @@ return {
         -- refer to the configuration section below
         enabled = true,
         animate = {
-          duration = { step = 15, total = 150 },
+          duration = { step = 15, total = 70 },
           easing = "linear",
           fps = 240,
         },
         animate_repeat = {
           delay = 50, -- delay in ms before using the repeat animation
-          duration = { step = 5, total = 150 },
+          duration = { step = 5, total = 70 },
           easing = "linear",
           fps = 240,
         },
@@ -224,18 +223,33 @@ return {
     opts = function()
       local dashboard = require("alpha.themes.dashboard")
       local logo = [[
- __         ______     ______     __  __     __   __   __     __    __
-/\ \       /\  __ \   /\___  \   /\ \_\ \   /\ \ / /  /\ \   /\ "-./  \
-\ \ \____  \ \  __ \  \/_/  /__  \ \____ \  \ \ \'/   \ \ \  \ \ \-./\ \
- \ \_____\  \ \_\ \_\   /\_____\  \/\_____\  \ \__|    \ \_\  \ \_\ \ \_\
-  \/_____/   \/_/\/_/   \/_____/   \/_____/   \/_/      \/_/   \/_/  \/_/
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⢠⣾⠟⠓⣯⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡠⣾⠞⠳⣷⣄⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⣏⣿⠀⠀⠿⣾⠶⠾⠶⠶⠾⠷⠷⠭⢶⣶⣿⣇⠀⢀⣿⣿⡀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⢠⣮⡏⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠀⠀⠀⠈⢿⣕⢄⠀⠀⠀⠀
+⠀⠀⠀⣠⣾⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢷⣕⠄⠀⠀
+⠀⠀⣴⣿⠋⠀⠀⠀⠀⠀⠀⠀⢀⣤⣄⠀⠀⠀⠀⠀⠀⢀⣄⣀⠀⠀⠀⠀⠀⠀⠀⠀⠹⣾⡄⠀
+⠀⢸⣿⠃⠀⠀⠀⠀⠀⠀⠀⢀⡴⠶⣤⡀⠀⠀⠀⠀⠀⠀⣠⠤⣄⠀⠀⠀⠀⠀⠀⠀⠀⢹⣿⡀
+⠀⣿⡏⠀⠀⠀⠀⠀⠀⠀⠀⢺⣷⠴⢿⡇⠀⠀⠀⠀⠀⢸⣧⠤⢿⡆⠀⠀⠀⠀⠀⠀⠀⠀⣿⡇
+⢐⣿⡇⠀⠀⠀⠀⣰⣆⡇⣥⣢⡙⠒⠋⠀⠀⠀⣀⠀⠀⠈⠛⠒⢛⣄⣆⣒⢠⡀⠀⠀⠀⠀⣿⡁
+⠀⣿⡇⠀⠀⠀⠀⠏⢸⠑⣏⠟⠀⠀⠀⠀⢦⣤⠿⣄⡴⠀⠀⠀⠸⠣⠏⠟⡼⠇⠀⠀⠀⢠⣿⡇
+⠀⠹⣿⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠶⠄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣾⡟⠀
+⠀⠀⠙⡿⣆⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⡿⠋⠀⠀
+⠀⠀⠀⠀⠉⣿⡶⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⢫⣿⠁⠀⠀⠀
+⠀⠀⠀⠀⠀⣽⡇⢰⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⡇⢘⣿⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⢻⢧⣼⡃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⣧⣸⡟⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠈⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⡿⠉⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⢿⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⡇⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠸⣿⠃⢸⣶⣦⣤⣤⣤⣄⣠⣀⣀⣠⣀⣤⣤⣤⣤⣶⠄⣿⡇⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠘⡿⣆⣼⡞⠈⠁⠈⠉⠉⠙⠒⠚⠓⠉⠉⠉⠈⣽⣷⣠⣿⠃⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠓⠁⠀⠀⠀⠀⠀⠀⠀
     ]]
 
       dashboard.section.header.val = vim.split(logo, "\n")
       -- stylua: ignore
       dashboard.section.buttons.val = {
         dashboard.button("f", " " .. " Find file", "<cmd> lua LazyVim.pick()() <cr>"),
-        dashboard.button("n", " " .. " New file", [[<cmd> ene <BAR> startinsert <cr>]]),
+        -- dashboard.button("n", " " .. " New file", [[<cmd> ene <BAR> startinsert <cr>]]),
         dashboard.button("r", " " .. " Recent files", [[<cmd> lua LazyVim.pick("oldfiles")() <cr>]]),
         dashboard.button("g", " " .. " Find text", [[<cmd> lua LazyVim.pick("live_grep")() <cr>]]),
         dashboard.button("c", " " .. " Config", "<cmd> lua LazyVim.pick.config_files()() <cr>"),

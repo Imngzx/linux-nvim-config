@@ -1,12 +1,12 @@
 local M = {
   "stevearc/conform.nvim",
-  event = "InsertEnter",
+  event = { "BufReadPost", "BufNewFile" },
 
   -- Instead of `config`, use `opts` to extend conform's setup
   opts = {
     formatters_by_ft = {
       lua = { "stylua" },
-      python = { "isort", "black" },
+      python = { "black" },
       javascript = { "prettierd", "prettier", stop_after_first = true },
       rust = { "rustfmt" },
       c = { "clang_format" },

@@ -6,6 +6,19 @@ return {
       "rapan931/colorful-menu.nvim",
     },
     opts = {
+
+      sources = {
+        -- add lazydev to your completion providers
+        default = { "lazydev", "lsp", "path", "buffer", "snippets" },
+        providers = {
+          lazydev = {
+            name = "LazyDev",
+            module = "lazydev.integrations.blink",
+            -- make lazydev completions top priority (see `:h blink.cmp`)
+            score_offset = 100,
+          },
+        },
+      },
       completion = {
         menu = {
           scrollbar = false,
