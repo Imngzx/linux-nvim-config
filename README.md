@@ -10,13 +10,27 @@ A starter template for [LazyVim](https://github.com/LazyVim/LazyVim).
 - pyrightconfig.json (activate venv first) , ruff.toml
 - compile_commands.json
 
-Also remember to install fd, luarocks, lua and xclip find via:
+Also remember to install fd,luarocks, lua and xclip find via:
 
+On linux
 - sudo dnf install
 - sudo apt install
 
-```sh
+On windows
+- choco install fd
 
+> [!NOTE]
+> This is for linux
+
+```sh
   git clone <https://github.com/Imngzx/linux-nvim-config.git> "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
 
 ```
+
+> [!NOTE]
+> This is for windows
+
+```sh
+  git clone <https://github.com/Imngzx/linux-nvim-config.git> "${env:LOCALAPPDATA}\nvim"
+```
+

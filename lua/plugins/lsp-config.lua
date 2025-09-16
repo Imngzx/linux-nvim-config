@@ -13,7 +13,7 @@ return {
         ---@type vim.diagnostic.Opts
         diagnostics = {
           underline = true,
-          update_in_insert = true,
+          update_in_insert = false,
           -- virtual_text = {
           --   spacing = 3,
           --   source = "if_many",
@@ -151,7 +151,10 @@ return {
               "--completion-style=detailed",
               "--function-arg-placeholders",
               "--fallback-style=llvm",
+              --NOTE:: if using Windows, enable cl.exe related by "uncomment" it
               "--query-driver=/usr/bin/**/clang-*,/bin/clang,/bin/clang++,/usr/bin/gcc,/usr/bin/g++",
+
+              -- "--query-driver=C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/*/bin/Hostx64/x64/cl.exe",
             },
             init_options = {
               usePlaceholders = true,
