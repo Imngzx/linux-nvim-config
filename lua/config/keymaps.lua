@@ -6,6 +6,8 @@
 --this is for LspInfo
 vim.keymap.set("n", "<leader>ai", "<cmd>LspInfo<CR>", { desc = "LSP Info" })
 vim.keymap.set("n", "<leader>ax", "<cmd>LazyExtras<CR>", { desc = "LazyExtras" })
+vim.keymap.set("n", "<leader>at", "<cmd>vert term<CR>", { desc = "Open Terminal" })
+-- vim.keymap.set("n", "<leader>aT", "<cmd>term<CR>", { desc = "Open CMD" })
 
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
