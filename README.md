@@ -31,6 +31,6 @@ On windows
 > This is for windows
 
 ```sh
-  git clone <https://github.com/Imngzx/linux-nvim-config.git> "${env:LOCALAPPDATA}\nvim"
+git clone https://github.com/Imngzx/linux-nvim-config.git "${env:LOCALAPPDATA}\nvim"
 ```
 
